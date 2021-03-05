@@ -1,18 +1,19 @@
-import {useEffect} from 'react';
+import {useState, useEffect} from 'react';
 
 import './App.css';
 
 function App() {
+  const [data, setData] = useState({});
+
   useEffect(() => {
     fetch('https://www.lbcit.ca/demo/api/?key=d9658b9d-4f86-491f-bd67-86af0c547a5c')
     .then((res) => {
-      console.log(res)
       return res.json()
     })
     .then((data) => {
-      console.log(data)
+      setData(data);
     })
-  })
+  }, [])
 
   return (
     <div className="App">
