@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 
+import CategoryView from './CategoryView/CategoryView';
+
 import './App.css';
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
 
   return (
     <div className="App">
+      <CategoryView data={data} />
     </div>
   );
 }
