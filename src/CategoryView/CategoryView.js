@@ -39,10 +39,6 @@ function CategoryView(props) {
     return sortedList
   }
 
-  if (!props.data.categories) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="CategoryView">
       <p>Active City: {activeCity}</p>

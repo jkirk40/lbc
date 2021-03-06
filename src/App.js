@@ -17,6 +17,10 @@ function App() {
     })
   }, [])
 
+  if (!data.categories) {
+    return <div className="App">Loading...</div>;
+  }
+
   return (
     <div className="App">
       <CategoryView data={data} />
