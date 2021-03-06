@@ -14,18 +14,20 @@ function CategoryView(props) {
   }
 
   const getCategoryList = () => {
-    return <>
-      {props.data.categories.map((cat, index) => {
-        return (
-          <Category 
-            key={index}
-            num={filterCategoryData(index)}
-            cat={cat}
-            activeCity={activeCity}
-          />
-        )
-      })}
-    </>
+    const list = props.data.categories.map((cat, index) => {
+      return (
+        <Category 
+          key={index}
+          num={filterCategoryData(index)}
+          cat={cat}
+          activeCity={activeCity}
+        />
+      )
+    })
+    const sortedList = list.sort((a, b) => {
+      return a.props.num - b.props.num;
+    })
+    return sortedList
   }
 
   if (!props.data.categories) {
