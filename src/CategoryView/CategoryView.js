@@ -6,6 +6,13 @@ import Category from './Children/Category';
 function CategoryView(props) {
   const [activeCity, setActiveCity] = useState('Tokyo');
 
+  const filterCategoryData = (id) => {
+    const filteredArray = props.data.series.filter((obj) => {return obj.name === activeCity})
+    const cityData = filteredArray[0];
+    const numForGivenMonth = cityData.data[id];
+    return numForGivenMonth;
+  }
+
   if (!props.data.categories) {
     return <div>Loading...</div>;
   }
@@ -18,8 +25,7 @@ function CategoryView(props) {
         return (
           <Category 
             key={index}
-            id={index}
-            data={props.data}
+            num={filterCategoryData(index)}
             cat={cat}
             activeCity={activeCity}
           />
