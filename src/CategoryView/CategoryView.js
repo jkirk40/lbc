@@ -13,6 +13,21 @@ function CategoryView(props) {
     return numForGivenMonth;
   }
 
+  const getCategoryList = () => {
+    return <>
+      {props.data.categories.map((cat, index) => {
+        return (
+          <Category 
+            key={index}
+            num={filterCategoryData(index)}
+            cat={cat}
+            activeCity={activeCity}
+          />
+        )
+      })}
+    </>
+  }
+
   if (!props.data.categories) {
     return <div>Loading...</div>;
   }
@@ -22,16 +37,7 @@ function CategoryView(props) {
       <p>Active City: {activeCity}</p>
       <CityMenu data={props.data} setActiveCity={setActiveCity}/>
       <ul>
-        {props.data.categories.map((cat, index) => {
-          return (
-            <Category 
-              key={index}
-              num={filterCategoryData(index)}
-              cat={cat}
-              activeCity={activeCity}
-            />
-          )
-        })}
+        {getCategoryList()}
       </ul>
     </div>
   );
