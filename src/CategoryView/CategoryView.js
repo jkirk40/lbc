@@ -5,6 +5,11 @@ import Category from './Children/Category';
 
 function CategoryView(props) {
   const [activeCity, setActiveCity] = useState('Tokyo');
+  const [sortByIndex, setSortByIndex] = useState(true);
+
+  const toggleSort = () => {
+    setSortByIndex(!sortByIndex);
+  }
 
   const filterCategoryData = (id) => {
     const filteredArray = props.data.series.filter((obj) => {return obj.name === activeCity})
@@ -24,9 +29,13 @@ function CategoryView(props) {
         />
       )
     })
-    const sortedList = list.sort((a, b) => {
-      return a.props.num - b.props.num;
-    })
+    
+    let sortedList;
+    if (sortByIndex) {
+      sortedList = list.sort((a, b) => {return a.props.index - b.props.index})
+    } else {
+      sortedList = list.sort((a, b) => {return a.props.num - b.props.num})
+    }
     return sortedList
   }
 
@@ -41,6 +50,9 @@ function CategoryView(props) {
       <ul>
         {getCategoryList()}
       </ul>
+      <button onClick={toggleSort}>
+        Toggle Sort Mode
+      </button>
     </div>
   );
 }
