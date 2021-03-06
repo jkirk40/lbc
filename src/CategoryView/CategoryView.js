@@ -21,16 +21,18 @@ function CategoryView(props) {
     <div className="CategoryView">
       <p>Active City: {activeCity}</p>
       <CityMenu data={props.data} setActiveCity={setActiveCity}/>
-      {props.data.categories.map((cat, index) => {
-        return (
-          <Category 
-            key={index}
-            num={filterCategoryData(index)}
-            cat={cat}
-            activeCity={activeCity}
-          />
-        )
-      })}
+      <ul>
+        {props.data.categories.map((cat, index) => {
+          return (
+            <Category 
+              key={index}
+              num={filterCategoryData(index)}
+              cat={cat}
+              activeCity={activeCity}
+            />
+          )
+        })}
+      </ul>
     </div>
   );
 }
