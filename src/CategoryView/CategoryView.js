@@ -20,14 +20,14 @@ function CategoryView(props) {
     return className;
   }
 
-  const filterCategoryData = (id) => {
-    const filteredArray = props.data.series.filter((obj) => {return obj.name === activeCity})
-    const cityData = filteredArray[0];
-    const numForGivenMonth = cityData.data[id];
-    return numForGivenMonth;
-  }
-
   const getCategoryList = () => {
+    const filterCategoryData = (id) => {
+      const filteredArray = props.data.series.filter((obj) => {return obj.name === activeCity})
+      const cityData = filteredArray[0];
+      const numForGivenMonth = cityData.data[id];
+      return numForGivenMonth;
+    }
+
     const list = props.data.categories.map((cat, index) => {
       return (
         <Category 
