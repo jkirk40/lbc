@@ -56,7 +56,7 @@ function CategoryView(props) {
         {getCategoryList()}
       </ul>
       <button onClick={toggleSort}>
-        Toggle Sort Mode
+        {sortByIndex ? 'Sort By Amount' : 'Sort By Month'}
       </button>
     </div>
   );
