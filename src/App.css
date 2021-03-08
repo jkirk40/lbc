@@ -14,3 +14,16 @@
   color: #61dafb;
 }
 
+button {
+  margin: 10px;
+  padding: 10px;
+
+  border: 2px solid white;
+
+  background-color: transparent;
+
+  font-weight: 900;
+  text-transform: uppercase;
+  color: white;
+}
+
