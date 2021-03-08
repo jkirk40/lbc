@@ -1,7 +1,9 @@
+import './Category.scss';
+
 function Category(props) {
   return (
     <div className="Category">
-      <div>{props.cat} {props.num}</div>
+      <p><span>{props.cat}</span> <span>{props.num}</span></p>
     </div>
   );
 }

@@ -1,0 +1,14 @@
+.Category {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    p {
+        margin: 0;
+        width: 150px;
+
+        display: flex;
+        justify-content: space-between;
+    }
+}
