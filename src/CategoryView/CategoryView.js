@@ -21,13 +21,18 @@ function CategoryView(props) {
   }
 
   const getCategoryList = () => {
-    const filterCategoryData = (id) => {
+    const filterCategoryData = (month) => {
+      // Remove all objects from the series array which are not the active city
       const filteredArray = props.data.series.filter((obj) => {return obj.name === activeCity})
       const cityData = filteredArray[0];
-      const numForGivenMonth = cityData.data[id];
+      // Select current month data for this city
+      const numForGivenMonth = cityData.data[month];
       return numForGivenMonth;
     }
 
+    // This creates an array with one component for each month.
+    // Each category component gets a num prop which is
+    // the relevant data for that month according to the active city state.
     const list = props.data.categories.map((cat, index) => {
       return (
         <Category 
@@ -39,6 +44,7 @@ function CategoryView(props) {
       )
     })
     
+    // Sort the array either by the default month index or by the number value
     let sortedList;
     if (sortByIndex) {
       sortedList = list.sort((a, b) => {return a.props.index - b.props.index})

@@ -17,6 +17,7 @@ function App() {
     })
   }, [])
 
+  // Render a loading screen if there is no proper data to pass down
   if (!data.categories) {
     return <div className="App">Loading...</div>;
   }
