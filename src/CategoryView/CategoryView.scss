@@ -1,0 +1,24 @@
+.CategoryView {
+    width: 100%;
+    height: 100%;
+
+    &.Tokyo {
+        background-color: red;
+    }
+
+    &.NewYork {
+        background-color: blue;
+    }
+
+    &.London {
+        background-color: navy;
+    }
+
+    &.Berlin {
+        background-color: charcoal;
+    }
+
+    ul {
+        padding: 0;
+    }
+}

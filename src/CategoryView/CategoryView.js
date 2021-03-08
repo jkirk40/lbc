@@ -3,12 +3,21 @@ import {useState} from 'react';
 import CityMenu from './Children/CityMenu';
 import Category from './Children/Category';
 
+import './CategoryView.scss';
+
 function CategoryView(props) {
   const [activeCity, setActiveCity] = useState('Tokyo');
   const [sortByIndex, setSortByIndex] = useState(true);
 
   const toggleSort = () => {
     setSortByIndex(!sortByIndex);
+  }
+
+  const getClassName = () => {
+    let className = "CategoryView ";
+    const city = activeCity.replace(/\s/g, '');
+    className += city;
+    return className;
   }
 
   const filterCategoryData = (id) => {
@@ -40,7 +49,7 @@ function CategoryView(props) {
   }
 
   return (
-    <div className="CategoryView">
+    <div className={getClassName()}>
       <p>Active City: {activeCity}</p>
       <CityMenu data={props.data} setActiveCity={setActiveCity}/>
       <ul>
